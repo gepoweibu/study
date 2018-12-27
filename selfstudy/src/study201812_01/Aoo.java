@@ -1,6 +1,6 @@
-package study201812;
+package study201812_01;
 
-import study201812.TestInterface.int1;
+import study201812_01.TestInterface.int1;
 
 public class Aoo implements int1,int3 {
 	public void show(){

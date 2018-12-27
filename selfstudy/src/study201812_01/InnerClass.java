@@ -1,6 +1,6 @@
-package study201812;
+package study201812_01;
 
-import study201812.Mama.Baby;
+import study201812_01.Mama.Baby;
 
 public class InnerClass {
 	public static void main(String[] args) {

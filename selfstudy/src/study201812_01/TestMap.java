@@ -1,4 +1,4 @@
-package study201812;
+package study201812_01;
 
 import java.util.*;
 

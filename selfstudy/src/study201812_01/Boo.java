@@ -1,6 +1,6 @@
-package study201812;
+package study201812_01;
 
-import study201812.TestInterface.int2;
+import study201812_01.TestInterface.int2;
 
 public class Boo implements int2,int4{
 	public void show(){
