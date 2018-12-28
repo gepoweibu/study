@@ -1,0 +1,7 @@
+1.内部类编译产生2个.class文件，匿名内部类编译产生一个.class文件
+2.gitignore配置不起作用的原因：文件已被提交过，已经有了版本控制。
+			解决办法：清楚缓存中的版本控制，重新提交文件。
+git命令：
+git rm -r --cached .
+git add .
+git commit -m "update .gitignore"
