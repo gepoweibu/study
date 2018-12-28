@@ -1,0 +1,1 @@
+git config --list   //列出所有Git配置信息
