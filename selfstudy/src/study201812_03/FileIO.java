@@ -11,7 +11,7 @@ import java.net.URL;
 public class FileIO {
 
 	public static void main(String[] args) throws IOException, URISyntaxException {
-		testFile();
+		//testFile();
 		//delTestOutputFile();
 	}
 	//File,读取文件内容输出到另一个文件中
@@ -28,7 +28,7 @@ public class FileIO {
 		//为了把文件放到Src下，把文件路劲中的bin替换为src
 		String opath = f.getParent().replaceAll("bin", "src");
 		System.out.println("output path : "+opath);
-		FileOutputStream fo = new FileOutputStream(f.getParent().replaceAll("/bin/", "/src/")+"/testIOfile_O");
+		FileOutputStream fo = new FileOutputStream(opath+"/testIOfile_O");
 		byte[] buffer=new byte[512];   //一次取出的字节数大小,缓冲区大小  
 	    int numberRead=0;  
 	    while ((numberRead=fi.read(buffer))!=-1) {  //numberRead的目的在于防止最后一次读取的字节小于buffer长度，  
