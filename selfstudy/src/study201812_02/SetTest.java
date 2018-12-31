@@ -12,7 +12,7 @@ import java.util.TreeSet;
 public class SetTest {
 
 	public static void main(String[] args) {
-		Set set=new HashSet<String>();
+		Set<String> set=new HashSet<String>();
 		set.add("you");
 		set.add("are");
 		set.add("lucky!");
@@ -38,7 +38,7 @@ public class SetTest {
 		System.out.println("----------hashmap and hashtable the as hashset------------");
 		//------Test TreeSet-------------------------
 		System.out.println("-----------Test TreeSet--------------------");
-		Set tSet=new TreeSet<String>(set);
+		Set<String> tSet=new TreeSet<String>(set);
 		System.out.println("this is TreeSet : "+ tSet +" sorted according to the natural");
 		String noticeStr="All elements inserted into the TreeSet must implement the Comparable interface";
 		System.out.println(noticeStr);

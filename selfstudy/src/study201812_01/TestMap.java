@@ -8,8 +8,8 @@ import java.util.*;
  */
 public class TestMap {
 	public static void main(String[] args) {
-		Map m1 = new HashMap();
-		m1.put(null, "2");
+		Map<String, String> m1 = new HashMap<String, String>();
+		m1.put("", "2");
 		m1.put("b", "3");
 		m1.put("c", null);
 		System.out.print("----" + m1);
