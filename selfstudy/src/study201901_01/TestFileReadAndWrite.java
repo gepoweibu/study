@@ -28,7 +28,7 @@ public class TestFileReadAndWrite {
 	}
 
 	/**
-	 * 文件输入输出字符流:测试FileReader和FileWriter.
+	 * 文件输入输出字符流:测试FileReader和FileWr/iter.
 	 */
 	public static void testFileRW() {
 		try {

@@ -12,15 +12,11 @@ public class RandomAccessFileTest {
 		RandomAccessFile copy = new RandomAccessFile(
 				"src" + File.separator + "study201901_01" + File.separator + "RandomAccessFileTest_Copy.txt", "rw");
 		int b = 0;
-		while ((b = src.read()) != -1) {
+		while ((b = src.read()) != -1) {//src.read(b)更高效的读取方法，使用缓冲区
 			copy.write(b);
 		}
 		copy.close();
 		src.close();
-		// for (int i = 0; i < 10; i++) {
-		// System.out.println(Integer.toBinaryString(i));
-		// System.out.println(Integer.toBinaryString(-i));
-		// }
 	}
 
 }
