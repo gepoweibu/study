@@ -1,0 +1,10 @@
+1.BlockingQueue双缓冲队列：多线程使用队列Queue进行同步操作会降低并发效率。
+	1).允许两个线程同时向BlockingQueue一个做存储，一个做读取。
+	2)常用类：ArrayBlockingQueue和LinkedBlockingQueue 
+	区别两者都可指定大小，若LBQ不指定大小，内部会自己维护一个队列的大小。
+2.队列获取头元素：pull(),peek()
+	1).pull()会把元素从队列中移除，而peek()不会。
+3.向队列添加元素：add(),offer(),put()
+	1).add()向队尾添加元素，若队列已满则抛异常IllegalStateException
+	2).offer()也是队尾添加元素，若队列已满返回false
+	3).put()队尾添加元素，若队列已满则等待队列出现可用空间。

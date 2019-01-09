@@ -19,5 +19,13 @@
 4.同步：
 	1).方法上声明同步 public synchronized void setSome()
 	2).同步代码块 synchronized(this){代码}; 静态方法中不能使用this。
-	3).锁对象要求：多个线程看到的必须是同一个对象。
+	3).锁对象要求：多个线程看到的必须是同一个对象。//最好使用类的静态变量new一个obj
+	4).synchronized(obj){obj.wait()}   synchronized(obj){obj.notify()} 
+	       比obj.join()更及时的通知。 
+	5).obj.notify()只会随机解除一个等待线程，解除所有线程obj.notifyAll()
+5.集合同步：
+	1).Collections.synchronizedMap(m)集合工具类可以把非同步的集合转换为同步的集合。
 	
+6.线程池：工厂类Executors  
+	1)常用方法Executors.newFixedThreadPool(nThread) 创建n个线程并重用。
+	2)Executors.newCachedThreadPool():根据需要创建和销毁线程，没有上线，有内存溢出风险。
