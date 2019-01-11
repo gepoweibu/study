@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emplist>
+	<emp id="1">
+		<name>小明</name>
+		<gender>男</gender>
+		<age>23</age>
+		<salary>3500</salary>
+	</emp>
+	<emp id="2">
+		<name>小红</name>
+		<gender>女</gender>
+		<age>22</age>
+		<salary>4000</salary>
+	</emp>
+	<emp id="3">
+		<name>毛毛</name>
+		<gender>女</gender>
+		<age>24</age>
+		<salary>3300</salary>
+	</emp>
+	<emp id="4">
+		<name>小强</name>
+		<gender>男</gender>
+		<age>30</age>
+		<salary>5000</salary>
+	</emp>
+	<emp id="5">
+		<name>小杰</name>
+		<gender>男</gender>
+		<age>27</age>
+		<salary>4500</salary>
+	</emp>
+</emplist>
