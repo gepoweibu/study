@@ -1,7 +1,6 @@
 package study201812_02;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
