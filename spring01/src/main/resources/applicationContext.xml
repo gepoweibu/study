@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+   		http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+        <!-- 声明使用spring注解 没有context上下文提示要引入xsd约束文件和命名空间声明 -->
+        <context:annotation-config></context:annotation-config>
+        <!-- maven项目中class路径从src下的包名开始 -->
+        <bean name="person" class="pojo.Person">
+        <property name="name" value="xiaoming"></property>
+        <property name="age" value="23"></property>
+        <property name="gender" value="man"></property>
+        <!-- 使用@Autowired在类的属性或set方法上注解就不需要在xml中ref引入 -->
+        <!-- <property name="profession" ref="profession"></property> -->
+        </bean>
+        <!-- 引用bean时使用id或name均可 -->
+        <bean id="profession" name="proName" class="pojo.Profession">
+        <property name="name" value="teacher"></property>
+        <property name="number" value="0001"></property>
+        </bean>
+        <!-- 业务bean -->
+        <bean name="PersonService" class="service.PersonService"></bean>
+        <!-- 切面bean -->
+        <bean name="LogAspect" class="aspect.LogAspect"></bean>
+        <!-- 配置aop -->
+        <aop:config>
+        	<!-- 配置切入点第一个*表示方法任意类型（后面有个空格），第二个*表示PersonService类中
+        	的任意方法，(..)表示参数为任意类型和个数 -->
+        	<aop:pointcut expression="execution(* service.PersonService.*(..))" id="logPointCut"/>
+        	<!-- 配置切面，ref通过name属性引用上面的切面bean -->
+        	<aop:aspect id="logAspect" ref="LogAspect">
+        		<aop:around pointcut-ref="logPointCut" method="log"/>
+        	</aop:aspect>
+        </aop:config>
+</beans>
