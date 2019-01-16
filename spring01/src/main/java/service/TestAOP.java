@@ -9,7 +9,10 @@ public class TestAOP {
 		@SuppressWarnings("resource")
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		PersonService ps = (PersonService)context.getBean("PersonService");
+		TestAfterService tas = (TestAfterService)context.getBean("TestAfterService");
 		ps.doSomething();
+		ps.anotherMethod();
+		tas.run();
 	}
 
 }

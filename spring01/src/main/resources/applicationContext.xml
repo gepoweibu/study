@@ -24,18 +24,23 @@
         <property name="name" value="teacher"></property>
         <property name="number" value="0001"></property>
         </bean>
+        <!-- 注解配置切面 -->
+        <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+        <!-- 自动扫描包内的bean -->
+        <context:component-scan base-package="service"></context:component-scan>
+        <context:component-scan base-package="aspect"></context:component-scan>
         <!-- 业务bean -->
-        <bean name="PersonService" class="service.PersonService"></bean>
+        <!-- <bean name="PersonService" class="service.PersonService"></bean> -->
         <!-- 切面bean -->
-        <bean name="LogAspect" class="aspect.LogAspect"></bean>
-        <!-- 配置aop -->
-        <aop:config>
+        <!--  <bean name="LogAspect" class="aspect.LogAspect"></bean>-->
+        <!--配置aop-->
+        <!--  <aop:config>-->
         	<!-- 配置切入点第一个*表示方法任意类型（后面有个空格），第二个*表示PersonService类中
         	的任意方法，(..)表示参数为任意类型和个数 -->
-        	<aop:pointcut expression="execution(* service.PersonService.*(..))" id="logPointCut"/>
+        	<!-- <aop:pointcut expression="execution(* service.PersonService.*(..))" id="logPointCut"/>-->
         	<!-- 配置切面，ref通过name属性引用上面的切面bean -->
-        	<aop:aspect id="logAspect" ref="LogAspect">
+        <!-- <aop:aspect id="logAspect" ref="LogAspect">
         		<aop:around pointcut-ref="logPointCut" method="log"/>
         	</aop:aspect>
-        </aop:config>
+        </aop:config>-->
 </beans>
