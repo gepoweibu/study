@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="Student" type="com.weibu.pojo.Student"/>
+		<typeAlias alias="User"    type="com.weibu.pojo.User"/>
+		<typeAlias alias="Author"  type="com.weibu.pojo.Author"/>
+		<typeAlias alias="Blog"    type="com.weibu.pojo.Blog"/>
+		<typeAlias alias="Post"    type="com.weibu.pojo.Post"/>
+	</typeAliases>
+	<environments default="development">
+	    <environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">  
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+			    <property name="url" value="jdbc:mysql://localhost:3306/ssm?
+			    		  useUnicode=true&amp;characterEncoding=utf-8"/>
+			    <property name="username" value="root"/>
+			    <property name="password" value="password"/>
+            </dataSource>
+		</environment>
+	</environments>
+	<mappers>
+	    <mapper resource="pojoxmlmapper/Author.xml"/>
+	    <mapper resource="pojoxmlmapper/Blog.xml"/>
+	    <mapper resource="pojoxmlmapper/Student.xml"/>
+	    <mapper resource="pojoxmlmapper/User.xml"/>
+	</mappers>
+</configuration>

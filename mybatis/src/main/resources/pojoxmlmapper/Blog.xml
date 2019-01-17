@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weibu.dao.IBlog">
+	<!-- 关联查询一对一 -->
+	<select id="selectBlog" resultMap="blogResult">
+	  select
+	    B.id            as blog_id,
+	    B.title         as blog_title,
+	    B.author_id     as blog_author_id,
+	    A.id            as author_id,
+	    A.username      as author_username,
+	    A.password      as author_password,
+	    A.email         as author_email
+	  from blog B left outer join author A on B.author_id = A.id
+	  where B.id = #{id}
+	</select>
+	<resultMap id="blogResult" type="Blog">
+	  <id property="id" column="blog_id" />
+	  <result property="title" column="blog_title"/>
+	  <association property="author" javaType="Author">
+	    <id property="id" column="author_id"/>
+	    <result property="username" column="author_username"/>
+	    <result property="password" column="author_password"/>
+	    <result property="email" column="author_email"/>
+	  </association>
+	</resultMap>
+	<!-- 关联查询一对多 -->
+	<select id="selectBlogPsot" resultMap="blogResultPost">
+	  select
+	  B.id as blog_id,
+	  B.title as blog_title,
+	  B.author_id as blog_author_id,
+	  P.id as post_id,
+	  P.subject as post_subject,
+	  A.id as author_id,
+	  A.username  as author_username,
+	  A.password  as author_password,
+	  A.email as author_email
+	  from Blog B
+	  left outer join Post P on B.id = P.blog_id
+	  left outer join author A on B.author_id = A.id
+	  where B.id = #{id}
+	</select>
+	<resultMap id="blogResultPost" type="Blog">
+	  <id property="id" column="blog_id" />
+	  <result property="title" column="blog_title"/>
+	  <association property="author" javaType="Author">
+	    <id property="id" column="author_id"/>
+	    <result property="username" column="author_username"/>
+	    <result property="password" column="author_password"/>
+	    <result property="email" column="author_email"/>
+	  </association>
+	  <collection property="posts" ofType="Post">
+	    <id property="id" column="post_id"/>
+	    <result property="subject" column="post_subject"/>
+	  </collection>
+	</resultMap>
+	
+	<!--嵌套查询 -->
+	<resultMap id="blogResultNest" type="Blog">
+	  <collection property="posts" column="id" ofType="Post" select="selectPostsForBlog"/>
+	</resultMap>
+	
+	<select id="selectBlogNest" resultMap="blogResultNest">
+	  SELECT * FROM BLOG WHERE ID = #{id}
+	</select>
+	
+	<select id="selectPostsForBlog" resultType="Post">
+	  SELECT * FROM POST WHERE BLOG_ID = #{id}
+	</select>
+	<!-- ... -->
+</mapper>
