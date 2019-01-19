@@ -14,7 +14,7 @@ import com.weibu.pojo.Blog;
 import com.weibu.pojo.Post;
 
 public class BlogService {
-	private static SqlSession session;
+	private static SqlSession session;//非线程安全类，最好在方法的获取，用完就关闭。工厂类可以是静态或单例的全局应用。
 	private static IBlog iblog;
 	static {
 		try {
